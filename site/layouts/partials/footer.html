@@ -73,13 +73,10 @@
 		</div>
 	</div>
 </footer>
-<!-- varias tretas pra isso funcionar com webpack-->
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-
-<script src="main.js"></script>
+{{ "<!-- JS Plugins -->" | safeHTML }}
+{{ range site.Params.plugins.js}}
+<script src="{{ .URL | absURL }}"></script>
+{{ end }}
 
 {{ "<!-- google analitycs -->" | safeHTML }}
 {{ with site.Params.google_analitycs_id }}
